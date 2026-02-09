@@ -12,9 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('evidencias', function (Blueprint $table) {
-            $table->foreignId('estudiante_id')->after('id')->constrained('users')->onDelete('cascade');
             $table->foreignId('criterio_evaluacion_id')->after('estudiante_id')->constrained('criterios_evaluacion')->onDelete('cascade');
-            $table->dropColumn('tarea_id');
         });
     }
 
@@ -24,8 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('evidencias', function (Blueprint $table) {
-            //$table->dropColumn('estudiante_id');
-            //$table->dropColumn('criterio_evaluacion_id');
+            $table->dropColumn('criterio_evaluacion_id');
         });
     }
 };
