@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('evidencias', function (Blueprint $table) {
             $table->id();
-            //$table->foreignId('estudiante_id')->constrained('users')->onDelete('cascade');
+            $table->unsignedBigInteger('estudiante_id')->nullable();
+            $table->foreignId('estudiante_id')->constrained('users')->onDelete('cascade');
             $table->integer('tarea_id');
             $table->string('url');
             $table->string('descripcion');
