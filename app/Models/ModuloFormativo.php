@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class ModuloFormativo extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<\Database\Factories\ModuloFormativoFactory> */
     use HasFactory, Notifiable;
 
     protected $table = 'modulos_formativos';

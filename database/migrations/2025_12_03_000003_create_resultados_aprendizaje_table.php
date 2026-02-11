@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('resultados_aprendizaje', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('modulo_formativo_id')->nullable();
             $table->foreignId('modulo_formativo_id')->constrained('ciclos_formativos')->onDelete('cascade'); //ciclo_formativo (tabla)
             $table->string('codigo', 50);
             $table->string('descripcion');

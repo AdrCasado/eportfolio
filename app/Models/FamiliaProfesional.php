@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class FamiliaProfesional extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<\Database\Factories\FamiliaProfesionalFactory> */
     use HasFactory, Notifiable;
 
     protected $table = 'familias_profesionales';

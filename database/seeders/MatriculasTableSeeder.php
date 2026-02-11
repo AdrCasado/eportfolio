@@ -12,6 +12,7 @@ class MatriculasTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        //EvaluacionEvidencia::truncate();
+        //EvaluacionEvidencia::factory(40)->create();
     }
 }

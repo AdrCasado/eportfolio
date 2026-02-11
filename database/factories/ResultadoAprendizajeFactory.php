@@ -17,11 +17,11 @@ class ResultadoAprendizajeFactory extends Factory
     public function definition(): array
     {
         return [
-            'modulo_formativo_id',
-            'codigo',
-            'peso_procentaje',
-            'orden',
-            'descripcion'
+            'modulo_formativo_id' => fake()->numberBetween(1, 20),
+            'codigo' => fake()->text(50),
+            'peso_procentaje' => fake()->numberBetween(1, 100),
+            'orden' => fake()->numberBetween(1, 20),
+            'descripcion' => fake()->text(50)
         ];
     }
 }

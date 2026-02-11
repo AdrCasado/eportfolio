@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ComentariosResource;
-use App\Models\Comentarios;
+use App\Models\Comentario;
 use App\Models\Evidencia;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class ComentariosController extends Controller
     public function index(Request $request, Evidencia $evidencia)
     {
         return ComentariosResource::collection(
-            Comentarios::where('evidencia_id', $evidencia->id)
+            Comentario::where('evidencia_id', $evidencia->id)
                 ->orderBy($request->_sort ?? 'id', $request->_order ?? 'asc')
                 ->paginate($request->perPage)
         );
@@ -30,14 +30,14 @@ class ComentariosController extends Controller
         $comentarioData = json_decode($request->getContent(), true);
         $comentarioData['evidencia_id'] = $evidencia->id;
 
-        $comentario = Comentarios::create($comentarioData);
+        $comentario = Comentario::create($comentarioData);
         return new ComentariosResource($comentario);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Evidencia $evidencia, Comentarios $comentario)
+    public function show(Evidencia $evidencia, Comentario $comentario)
     {
         abort_if($comentario->evidencia_id !== $evidencia->id, 404);
         return new ComentariosResource($comentario);
@@ -46,7 +46,7 @@ class ComentariosController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Evidencia $evidencia, Comentarios $comentario)
+    public function update(Request $request, Evidencia $evidencia, Comentario $comentario)
     {
         abort_if($comentario->evidencia_id !== $evidencia->id, 404);
 
@@ -59,7 +59,7 @@ class ComentariosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Evidencia $evidencia, Comentarios $comentario)
+    public function destroy(Evidencia $evidencia, Comentario $comentario)
     {
         try {
             abort_if($comentario->evidencia_id !== $evidencia->id, 404);

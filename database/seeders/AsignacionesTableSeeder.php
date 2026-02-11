@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Asignaciones;
+use App\Models\AsignacionRevision;
 use Illuminate\Database\Seeder;
 
 class AsignacionesTableSeeder extends Seeder
 {
     public function run(): void
     {
-        Asignaciones::truncate();
+        AsignacionRevision::truncate();
 
         foreach (self::$asignaciones as $asignacion) {
-            Asignaciones::insert([
+            AsignacionRevision::insert([
                 'evidencia_id' => $asignacion['evidencia_id'],
                 'revisor_id' => $asignacion['revisor_id'],
                 'asignado_por_id' => $asignacion['asignado_por_id'],

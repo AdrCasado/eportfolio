@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('criterios_tareas', function (Blueprint $table) {
-            $table->unsignedBigInteger('tarea_id');
+            // $table->unsignedBigInteger('tarea_id');
             $table->foreignId('tarea_id')->constrained('tareas')->onDelete('cascade');
-            $table->unsignedBigInteger('actividad_id');
+            // $table->unsignedBigInteger('actividad_id');
             $table->foreignId('actividad_id')->constrained('actividades')->onDelete('cascade');
             $table->primary(['tarea_id', 'actividad_id']);
             $table->timestamps();

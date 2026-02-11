@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('asignaciones', function (Blueprint $table) {
+        Schema::create('asignaciones_revision', function (Blueprint $table) {
             $table->id();
             $table->foreignId('evidencia_id')->constrained('evidencias')->onDelete('cascade'); //evidencias (tabla)
             $table->foreignId('revisor_id')->constrained('users')->onDelete('cascade'); //users (tabla)
             $table->foreignId('asignado_por_id')->constrained('users')->onDelete('cascade'); //users (tabla)
-            $table->enum('estado', ['pendiente', 'en_proceso', 'completada'])->default('pendiente');
             $table->date('fecha_limite')->nullable(false);
+            $table->enum('estado', ['pendiente', 'en_proceso', 'completada'])->default('pendiente');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('asignaciones');
+        Schema::dropIfExists('asignaciones_revision');
     }
 };

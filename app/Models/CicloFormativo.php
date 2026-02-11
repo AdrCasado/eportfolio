@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class CicloFormativo extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<\Database\Factories\CicloFormativoFactory> */
     use HasFactory, Notifiable;
 
     protected $table = 'ciclos_formativos';

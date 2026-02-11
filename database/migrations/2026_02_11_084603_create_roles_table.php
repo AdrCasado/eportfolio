@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('evidencias', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('estudiante_id')->constrained('users')->onDelete('cascade');
-            $table->integer('tarea_id');
-            $table->string('url');
-            $table->string('descripcion');
-            $table->enum('estado_validacion', ['pendiente', 'validada', 'rechazada']);
             $table->timestamps();
         });
     }
@@ -27,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evidencias');
+        Schema::dropIfExists('roles');
     }
 };
