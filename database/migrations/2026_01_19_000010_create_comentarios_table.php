@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('evidencia_id')->references('id')->on('evidencias')->onDelete('cascade'); //evidencias (tabla)
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); //users (tabla)
-            $table->text('comentario');
+            $table->text('contenido');
             $table->enum('tipo', ['profesor', 'estudiante']);
             $table->timestamps();
         });
