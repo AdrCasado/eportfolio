@@ -20,7 +20,8 @@ class UsersTableSeeder extends Seeder
         User::factory(10)->create();
         User::factory()->create([
             'name' => 'Test User',
-            'email' => 'test@example.com',
+            'email' => config('app.admin.email', 'test@example.com'),
+            'password' => config('app.admin.password', 'password')
         ]);
     }
 }
