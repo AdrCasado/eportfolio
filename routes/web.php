@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->group(function () {
     // Formulario de importación
     Route::get('/portfolio/import', [PortfolioImportController::class, 'showImportForm'])
-        ->name('portfolio.import.form');
+        ->name('portfolio.import.index');
 
     // Importar desde JSON Resume
     Route::post('/portfolio/import/json-resume', [PortfolioImportController::class, 'importJsonResume'])
